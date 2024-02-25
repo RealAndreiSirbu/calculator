@@ -89,9 +89,16 @@ button_divide.place(x=int(button_3.place_info()['x']) + button_3.winfo_reqwidth(
 width = int(equation_entry.place_info()['x']) + equation_entry.winfo_reqwidth()
 height = int(button_equals.place_info()['y']) + button_equals.winfo_reqheight()
 
+def scientific_mode():
+    # TODO: Increase the window's size and add more buttons.
+    print('Scientific mode enabled.')
+
+mode_menu.add_command(label='Basic')
+mode_menu.add_command(label='Scientific', command=lambda: scientific_mode())
+
 window.geometry(f'{width}x{height}')
 
-menubar.add_cascade(menu=mode_menu, label="Mode")
+menubar.add_cascade(menu=mode_menu, label='Mode')
 window.config(menu=menubar)
 
 window.mainloop()
